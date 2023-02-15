@@ -1,0 +1,71 @@
+<div >
+    <table>
+        <tr>
+            <td>
+                <div class="Watchlist">
+                    Watchlist <br/>
+                    {{watchlistCount}}
+                </div>    
+            </td>
+            <td>
+                Filter Plant
+                Category
+                
+                    <select #category (change)="getFilterData(category.value)">
+                        <option> Plant </option>
+                        <option> Seed </option>
+                    </select>
+                   
+            
+            </td>
+            <td>
+                Filter Seasons
+                
+                    <select #season (change)="getFilterData(season.value)">
+                        <option> Summer </option>
+                        <option> Winter </option>
+                        <option> Spring </option>
+                    </select>
+                   
+            
+            </td>
+           
+        </tr>
+    </table>
+   
+
+
+</div>
+
+
+
+<hr/>
+<div *ngFor="let c of allPlant">
+<table>
+    <tr>
+        <td> <img src="/assets/images/{{c.imageName}}" alt="Plant image" width="120px" height="150px"> </td>
+        <td> 
+            <h2>{{c.plantName}} </h2>
+            <p> {{c.about}} </p>
+            <hr/>
+            <span>Plant Price <span [style]="c.price<75?priceLowCss:priceNormalCss" >{{c.price|currency}}    </span>  
+                <i *ngIf="c.discount>0"> 
+                    with {{c.discount}}% Off 
+                    <span *ngIf="c.discount>9">
+                        <b style="color: blue; font-family: Georgia, 'Times New Roman', Times, serif;"><u> Recommended</u></b>
+                    </span>
+                </i> 
+        
+            </span> 
+            <br/>
+           
+            <hr/>
+            <button value="{{c.plantId}}" (click)="goForBuy(plant.value)" #plant> Buy Plant </button>
+            <button value="{{c.plantId}}" (click)="addWatchlist(plant.value)" #plant> Add to Watchlist </button>
+                
+            
+        </td>
+        
+    </tr>
+</table>
+</div>

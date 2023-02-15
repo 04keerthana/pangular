@@ -1,0 +1,55 @@
+<table>
+    <tr>
+        <td> Enter  Plant Id </td>
+        <td> <input type="text" #plantId/> </td>
+    </tr>
+    <tr>
+        <td> Enter  Plant Name </td>
+        <td> <input type="text" #plantName/> </td>
+    </tr>
+    <tr>
+        <td>Category</td>
+        <td> 
+            <select #category>
+                <option> Plant</option>
+                <option> Seed </option>
+                
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Season</td>
+        <td> 
+            <select #season>
+                <option> Summer</option>
+                <option> Winter </option>
+                <option> Spring</option>
+                
+            </select>
+        </td>
+    </tr>
+    
+    <tr>
+        <td> Image Name </td>
+        <td> <input type="text" #image/> </td>
+    </tr>
+    <tr>
+        <td> Plant Description </td>
+        <td> <input type="text" #about/> </td>
+    </tr>
+    <tr>
+        <td> Discount </td>
+        <td> <input type="text" #discount/> </td>
+    </tr>
+    <tr>
+        <td> Price </td>
+        <td> <input type="text" #price/> </td>
+    </tr>
+    <tr>
+        <td> <input type="reset" vaule="Clear All"></td>
+        <td> <input type="button" 
+            (click)="readPlant(plantId.value,plantName.value,category.value,season.value,price.value,discount.value,about.value,image.value)"
+            value="Add Plant" /> </td>
+    </tr>
+</table>
+<br/>
